@@ -1,5 +1,6 @@
 secret.py
 chromedriver
+src/userinfo.ts
 
 .idea/
 
@@ -16,3 +17,16 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+
+node_modules
+.vscode/
+.DS_Store
+yarn-error.log*
+.build
+.serverless
+.dynamodb
+.webpack
+*.log
+lib/
+.build
+_warmup

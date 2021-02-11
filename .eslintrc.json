@@ -1,0 +1,46 @@
+{
+  "extends": [
+    "airbnb-base",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "prettier/@typescript-eslint",
+    "plugin:prettier/recommended"
+  ],
+  "parser": "@typescript-eslint/parser",
+  // enable if you want to check no-floating-promises rule
+  // "parserOptions": {
+  //   "project": "./tsconfig.json"
+  // },
+  "plugins": ["@typescript-eslint", "no-async-foreach", "prettier"],
+  "settings": {
+    "import/parsers": {
+      "@typescript-eslint/parser": [".ts", ".tsx"]
+    },
+    "import/resolver": {
+      "typescript": {}
+    }
+  },
+  "rules": {
+    "no-underscore-dangle": [
+      2,
+      {
+        "allowAfterThis": true
+      }
+    ],
+    "import/extensions": [2, "never"],
+    "@typescript-eslint/no-empty-interface": 0,
+    "no-async-foreach/no-async-foreach": 2,
+    // "@typescript-eslint/no-floating-promises": 1,
+    "import/prefer-default-export": 0,
+    "no-console": 0,
+    "no-plusplus": 0,
+    "no-param-reassign": 0,
+    "no-else-return": 0,
+    "no-unreachable": 2,
+    "import/no-cycle": 0,
+    "no-shadow": 0,
+    "lines-between-class-members": 0,
+    "@typescript-eslint/no-unused-vars": [1, { "argsIgnorePattern": "^_" }],
+    "prettier/prettier": "error"
+  }
+}

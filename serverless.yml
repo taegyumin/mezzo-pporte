@@ -1,0 +1,53 @@
+service:
+  name: mezzo-pporte
+plugins:
+  - serverless-webpack
+  - serverless-offline
+  - serverless-prune-plugin
+custom:
+  serverless-offline:
+    httpPort: 9000
+    lambdaPort: 9002
+  webpack:
+    includeModules: true
+    packager: 'yarn'
+    keepOutputDirectory: true
+  prune:
+    automatic: true
+    number: 3
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  stage: ${opt:stage}
+  region: ap-northeast-2
+  environment:
+    STAGE: ${self:provider.stage}
+    REGION: ${self:provider.region}
+    # Ports for dev
+    DEV_HTTP_PORT: ${self:custom.serverless-offline.httpPort}
+    DEV_LAMBDA_PORT: ${self:custom.serverless-offline.lambdaPort}
+  timeout: 30
+  iamRoleStatements:
+    - Effect: 'Allow'
+      Action:
+        - 'lambda:InvokeFunction'
+      Resource:
+        - Fn::Join:
+            - ':'
+            - - arn:aws:lambda
+              - Ref: AWS::Region
+              - Ref: AWS::AccountId
+              - function:*
+functions:
+  # --- http ---
+
+  # --- scheduled ---
+  crawl:
+    handler: src/crawler.handler
+    timeout: 60
+    memorySize: 768
+    events:
+      - schedule:
+          rate: cron(5 * * * ? *)
+          enabled: true
