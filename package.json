@@ -1,0 +1,73 @@
+{
+  "name": "mezzo-pporte",
+  "version": "1.0.0",
+  "description": "배우 박보영님의 다음 팬카페 뽀르테를 자동 응원하는 프로그램입니다. 학습 목적으로 작성했습니다.",
+  "main": "index.js",
+  "repository": "https://github.com/taegyumin/mezzo-pporte.git",
+  "author": "Taegyu Min <mtg821@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "bootstrap": "yarn lerna bootstrap",
+    "lint": "eslint . --ext .ts,.tsx",
+    "dev": "node --max-old-space-size=512 node_modules/serverless/bin/serverless.js offline start --stage dev",
+    "deploy": "serverless deploy",
+    "local": "serverless -s v1 invoke local --function crawl"
+  },
+  "dependencies": {
+    "aws-lambda": "^1.0.6",
+    "aws-sdk": "^2.838.0",
+    "bufferutil": "^4.0.3",
+    "chrome-aws-lambda": "^5.3.1",
+    "lodash": "^4.17.20",
+    "puppeteer-core": "^5.4.1",
+    "utf-8-validate": "^5.0.4"
+  },
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.64",
+    "@types/lodash": "^4.14.168",
+    "@types/node": "^14.14.24",
+    "@types/puppeteer": "^5.4.0",
+    "@types/puppeteer-core": "^5.4.0",
+    "@typescript-eslint/eslint-plugin": "^3.8.0",
+    "@typescript-eslint/parser": "^3.8.0",
+    "concurrently": "^5.3.0",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-config-airbnb-typescript": "^9.0.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-import-resolver-typescript": "^2.2.0",
+    "eslint-plugin-flowtype": "^5.2.0",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-json": "^2.1.2",
+    "eslint-plugin-jsx-a11y": "^6.3.1",
+    "eslint-plugin-no-async-foreach": "^0.1.1",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-react": "^7.20.5",
+    "eslint-plugin-react-hooks": "^4.0.8",
+    "husky": "^4.2.5",
+    "lerna": "^3.22.1",
+    "lint-staged": "^10.2.11",
+    "prettier": "^2.0.5",
+    "puppeteer": "^5.4.1",
+    "serverless": "^2.22.0",
+    "serverless-offline": "^6.8.0",
+    "serverless-prune-plugin": "^1.4.3",
+    "serverless-webpack": "^5.3.5",
+    "ts-loader": "^8.0.15",
+    "typescript": "^3.9.7",
+    "webpack": "^5.20.2"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "**/*.{ts,tsx}": [
+      "eslint --fix --max-warnings 0"
+    ],
+    "**/*.json": [
+      "prettier --write"
+    ]
+  }
+}
