@@ -7,7 +7,6 @@
   "author": "Taegyu Min <mtg821@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "bootstrap": "yarn lerna bootstrap",
     "lint": "eslint . --ext .ts,.tsx",
     "dev": "node --max-old-space-size=512 node_modules/serverless/bin/serverless.js offline start --stage dev",
     "deploy": "serverless deploy",
@@ -45,7 +44,6 @@
     "eslint-plugin-react": "^7.20.5",
     "eslint-plugin-react-hooks": "^4.0.8",
     "husky": "^4.2.5",
-    "lerna": "^3.22.1",
     "lint-staged": "^10.2.11",
     "prettier": "^2.0.5",
     "puppeteer": "^5.4.1",
