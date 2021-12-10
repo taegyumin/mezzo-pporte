@@ -1,6 +1,6 @@
 {
   "name": "mezzo-pporte",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "배우 박보영님의 다음 팬카페 뽀르테를 자동 응원하는 프로그램입니다. 학습 목적으로 작성했습니다.",
   "main": "index.js",
   "repository": "https://github.com/taegyumin/mezzo-pporte.git",
